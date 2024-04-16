@@ -1,0 +1,11 @@
+email_id,object,sender_address,received_at
+1,Subject 1,alice@ippon.com,2024-04-01 08:00:00
+2,Subject 2,bob@google.com,2024-04-01 08:15:00
+3,Subject 3,carol@ippon.com,2024-04-01 08:30:00
+4,Subject 4,dave@google.com,2024-04-01 09:00:00
+5,Subject 5,emma@ippon.com,2024-04-01 09:15:00
+6,,frank@google.com,2024-04-01 09:30:00
+7,Subject 7,grace@ippon.com,2024-04-01 10:00:00
+8,,harry@google.com,2024-04-01 10:15:00
+9,Subject 9,ian@ippon.com,2024-04-01 10:30:00
+10,Subject 10,jane@google.com,2024-04-01 11:00:00

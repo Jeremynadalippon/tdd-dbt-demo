@@ -1,0 +1,12 @@
+tdd_dbt_demo:
+  target: dev
+  outputs:
+    dev:
+      dbname: "{{ env_var('POSTGRES_DATABASE_DEV') }}"
+      host: "{{ env_var('POSTGRES_HOST_DEV') }}"
+      pass: "{{ env_var('POSTGRES_PASSWORD_DEV') }}"
+      port: 5432
+      schema: "{{ env_var('POSTGRES_SCHEMA_DEV') }}"
+      threads: 1
+      type: postgres
+      user: "{{ env_var('POSTGRES_USER_DEV') }}"
