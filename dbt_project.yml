@@ -15,6 +15,7 @@ profile: 'tdd_dbt_demo'
 model-paths: ["src/models"]
 macro-paths: ["src/macros"]
 seed-paths: ["src/seeds"]
+test-paths: ["src/tests"]
 
 
 clean-targets:         # directories to be removed by `dbt clean`

@@ -26,6 +26,7 @@ select cast(null as integer) as email_id, cast(null as text) as object,
  as received_at
 ), emails as (
     select * from __dbt__cte__fact_emails
+    
 )
 
 , count_emails as (

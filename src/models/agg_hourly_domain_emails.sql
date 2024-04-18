@@ -1,5 +1,9 @@
 with emails as (
     select * from {{ ref('fact_emails') }}
+    {% if is_incremental() %}
+        where
+            date_trunc('hour', received_at) > (select max(sent_at_hour) from {{ this }})
+    {% endif %}
 )
 
 , count_emails as (
