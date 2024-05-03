@@ -2,6 +2,9 @@ unit_tests:
     - name: test_group_by_hour
       description: It groups by hour
       model: agg_hourly_domain_emails
+      overrides:
+        macros:
+          is_incremental: false
       given:
         - input: ref('fact_emails')
           rows:
@@ -18,6 +21,9 @@ unit_tests:
     - name: test_group_by_domain
       description: It groups by domain
       model: agg_hourly_domain_emails
+      overrides:
+        macros:
+          is_incremental: false
       given:
         - input: ref('fact_emails')
           rows:
@@ -32,6 +38,9 @@ unit_tests:
     - name: test_group_by_domain_hour
       description: It groups by domain and hour
       model: agg_hourly_domain_emails
+      overrides:
+        macros:
+          is_incremental: false
       given:
         - input: ref('fact_emails')
           rows:
@@ -43,9 +52,10 @@ unit_tests:
         rows:
           - { domain: 'ippon.fr', sent_at_hour: '2021-01-01 00:00:00', email_count: 2 }
           - { domain: 'google.com', sent_at_hour: '2021-01-01 00:00:00', email_count: 1 }
+          - { domain: 'google.com', sent_at_hour: '2021-01-01 01:00:00', email_count: 1 }
 
     - name: test_incremental_group_by_domain_hour
-      description: Check that incremental works fine and groups by domain and hour
+      description: It computes only new data when is_incremental is true
       model: agg_hourly_domain_emails
       overrides:
         macros:
@@ -62,4 +72,3 @@ unit_tests:
       expect:
         rows:
           - { sent_at_hour: '2021-01-02 00:00:00', email_count: 1 }
-          - { domain: 'google.com', sent_at_hour: '2021-01-01 01:00:00', email_count: 1 }
