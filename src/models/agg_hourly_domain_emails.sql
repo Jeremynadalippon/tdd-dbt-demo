@@ -9,7 +9,7 @@ with emails as (
 , count_emails as (
     select
         date_trunc('hour', received_at) as sent_at_hour
-        , substring(sender_address from '@(.*)') as domain
+        , substr(sender_address, position('@' in sender_address) + 1) as domain
         , count(*) as email_count
     from
         emails
