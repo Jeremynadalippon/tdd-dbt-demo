@@ -68,7 +68,7 @@ unit_tests:
           format: csv
           rows: |
             sent_at_hour,email_count
-            '2021-01-01 00:00:00',1
+            2021-01-01 00:00:00,1
       expect:
         rows:
           - { sent_at_hour: '2021-01-02 00:00:00', email_count: 1 }
